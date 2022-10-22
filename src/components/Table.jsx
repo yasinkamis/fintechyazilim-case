@@ -1,7 +1,8 @@
 import React from "react";
+import styled from "styled-components";
 
 const Table = ({ data, isLoading, error, dataLength, query }) => {
-  const tableHead = ["KOD", "ÜLKE", "BAŞKENT", "KITA"];
+  const tableHead = ["KOD", "ÜLKE", "BAŞKENT", "KITA", "BAYRAK"];
   return (
     <>
       {(error || !dataLength) && query ? (
@@ -34,6 +35,9 @@ const Table = ({ data, isLoading, error, dataLength, query }) => {
                 <td>{item.name}</td>
                 <td>{item.capital}</td>
                 <td>{item.region}</td>
+                <td>
+                  <FlagIcon src={item.flag} alt="FlagIcon" />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -44,3 +48,7 @@ const Table = ({ data, isLoading, error, dataLength, query }) => {
 };
 
 export default Table;
+
+const FlagIcon = styled.img`
+  max-width: 50px;
+`;
