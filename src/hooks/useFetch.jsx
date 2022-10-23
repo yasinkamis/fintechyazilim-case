@@ -10,7 +10,7 @@ const useFetch = (baseURL, query, method, data) => {
     setIsLoading(true);
     if (method === "POST") {
       axios
-        .post("/user", data)
+        .post(baseURL, data)
         .then((response) => {
           setResponse(response);
           setIsLoading(false);
